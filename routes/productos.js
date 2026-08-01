@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const { formatearFecha } = require('../utils/formatDate');
 
 const router = express.Router();
 const DATA_FILE = path.join(__dirname, '..', 'data', 'productos.json');
@@ -35,7 +36,8 @@ router.post('/', (req, res) => {
     id: productos.length ? Math.max(...productos.map(p => p.id)) + 1 : 1,
     nombre: req.body.nombre,
     precio: req.body.precio,
-    stock: req.body.stock
+    stock: req.body.stock,
+    fechaCreacion: formatearFecha()
   };
   productos.push(nuevoProducto);
   guardarProductos(productos);
