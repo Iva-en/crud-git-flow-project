@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const { validarProducto } = require('../middleware/validate');
 
 const router = express.Router();
 const DATA_FILE = path.join(__dirname, '..', 'data', 'productos.json');
@@ -29,7 +30,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/productos - crear
-router.post('/', (req, res) => {
+router.post('/', validarProducto, (req, res) => {
   const productos = leerProductos();
   const nuevoProducto = {
     id: productos.length ? Math.max(...productos.map(p => p.id)) + 1 : 1,
