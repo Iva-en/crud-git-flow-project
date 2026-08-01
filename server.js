@@ -1,5 +1,6 @@
 const express = require('express');
 const productosRouter = require('./routes/productos');
+const dashboardRouter = require('./routes/dashboard');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,6 +12,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/productos', productosRouter);
+app.use('/api/dashboard', dashboardRouter);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
