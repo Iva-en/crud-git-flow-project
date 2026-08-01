@@ -1,0 +1,14 @@
+{
+  "name": "crud-git-flow-project",
+  "version": "1.0.0",
+  "description": "Proyecto CRUD funcional (Node.js + Express) desarrollado aplicando la metodologia Git Flow",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
